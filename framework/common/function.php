@@ -3,11 +3,15 @@
 function M($names){
 	$names = $names.'Model';
 	$module = gv('m','home');
-	include "./".$module."/model/$names.class.php";
-	$a = new $names();
-	return $a;
+	static $models;
+	if (!isset($models[$module.'/'.$names]) || !is_object($models[$module.'/'.$names])){
+		include "./".$module."/model/$names.class.php";
+		$a = new $names();
+		$models[$module.'/'.$names]=$a;
+	}else{
+		return $models[$module.'/'.$names];
+	}
 }
-
 function redirect($url){
 	header("location:$url");
 }
