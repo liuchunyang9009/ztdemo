@@ -11,7 +11,7 @@ class IndexController extends Controller
 	}
 	function index(){
 		//$this->display();
-		include "./home/view/index/index.html";
+		include "./home/view/Index/index.html";
 	}
 }
 
