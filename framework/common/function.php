@@ -8,9 +8,9 @@ function M($names){
 		include "./".$module."/model/$names.class.php";
 		$a = new $names();
 		$models[$module.'/'.$names]=$a;
-	}else{
-		return $models[$module.'/'.$names];
 	}
+		return $models[$module.'/'.$names];
+	
 }
 function redirect($url){
 	header("location:$url");
